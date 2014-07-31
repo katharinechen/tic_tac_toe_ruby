@@ -5,7 +5,6 @@ class Game
     @playerX = Player.new("X")
     @playerO = Player.new("O")
     @players = [@playerX, @playerO]
-
     @board = [Board.new(1)]
     @turn = 0
     @current_player = @players[0]

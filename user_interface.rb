@@ -54,6 +54,8 @@ def game_play
     header
     puts @active_board
     puts "You Won!"
+  elsif @new_game.turn >= 9
+    puts "It's a TIE! Do you even lift?"
   else
     turn
   end
@@ -64,17 +66,23 @@ def turn
   header
   puts @active_board
   puts "Player #{@new_game.current_player.symbol}: select a box by typing in the number"
-  number = gets.chomp
-  if (@new_game.board[0].spaces[number.to_i - 1].marked_by == nil)
-    @new_game.board[0].spaces[number.to_i - 1].set_mark(@new_game.current_player.symbol)
-    @active_board.gsub!(number, @new_game.current_player.symbol)
-    @new_game.take_turn
-    game_play
+  number = gets.chomp.to_i
+  if (1..9).include?(number)
+    if (@new_game.board[0].spaces[number - 1].marked_by == nil)
+      @new_game.board[0].spaces[number - 1].set_mark(@new_game.current_player.symbol)
+      @active_board.gsub!(number.to_s, @new_game.current_player.symbol)
+      @new_game.take_turn
+      game_play
+    else
+      puts "Invalid selection. Please try again."
+      sleep 0.5
+      game_play
+    end
   else
     puts "Invalid selection. Please try again."
-    sleep 0.5
-    game_play
-  end
+      sleep 0.5
+      game_play
+    end
 end
 
 
