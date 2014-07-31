@@ -55,12 +55,32 @@ describe :Board do
   describe :win? do
     it "should set win_game to true if the player has three in a row" do
       new_board = Board.new(1)
-      # new_board.spaces[0].set_mark("X")
-      # new_board.spaces[4].set_mark("X")
-      # new_board.spaces[8].set_mark("X")
+      new_board.spaces[0].set_mark("X")
+      new_board.spaces[4].set_mark("X")
+      new_board.spaces[8].set_mark("X")
       expect(new_board.win?).to eq true
     end
 
   end
 
+end
+
+describe :Game do
+
+  describe :initialize do
+    it 'initializes a game object' do
+      new_game = Game.new
+      expect(new_game).to be_an_instance_of Game
+      expect(new_game.players.length).to eq(2)
+      expect(new_game.board.length).to eq (1)
+    end
+  end
+
+  describe :take_turn do
+    it 'should have turns' do
+      new_game = Game.new
+      expect(new_game.take_turn).to eq(1)
+      expect(new_game.current_player.symbol).to eq("O")
+    end
+  end
 end
