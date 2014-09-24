@@ -35,6 +35,3 @@ class Board
     @win_game
   end
 end
-
-
-

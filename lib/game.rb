@@ -15,6 +15,4 @@ class Game
     @current_player = @players[0]
     @turn += 1
   end
-
 end
-

@@ -21,7 +21,6 @@ describe :Space do
       expect(new_space.marked_by).to eq("X")
     end
   end
-
 end
 
 describe :Player do
@@ -60,9 +59,7 @@ describe :Board do
       new_board.spaces[8].set_mark("X")
       expect(new_board.win?).to eq true
     end
-
   end
-
 end
 
 describe :Game do

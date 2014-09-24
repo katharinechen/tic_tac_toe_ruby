@@ -47,7 +47,6 @@ def main_menu
   exit if main_choice == "e"
 end
 
-
 def game_play
   if @new_game.board[0].win?
     system 'clear'
@@ -85,7 +84,4 @@ def turn
     end
 end
 
-
-
-
-  main_menu
+main_menu
